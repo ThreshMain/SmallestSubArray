@@ -39,7 +39,7 @@ public class SmallestSubArray {
                     containsAll = minimalList.size() != 0;
 
                 }
-                Range range=new Range(leftPointer, index);
+                Range range=new Range(leftPointer, index+1);
                 if(range.size() < smallestSize){
                     smallestSize=range.size();
                     rangeList.clear();
@@ -54,7 +54,7 @@ public class SmallestSubArray {
         return rangeList;
     }
 
-    private static class Range {
+    public static class Range {
         private final int start, end;
 
         public Range(int start, int end) {
@@ -72,7 +72,7 @@ public class SmallestSubArray {
         }
 
         public int size() {
-            return end - start+1;
+            return end - start;
         }
     }
 }
