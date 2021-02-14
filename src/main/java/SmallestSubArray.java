@@ -1,8 +1,11 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class SmallestSubArray {
-    public static <T> List<Range> findAll(Iterable<T> content, T[] terms) {
+    @org.jetbrains.annotations.NotNull
+    public static <T> List<Range> findAll(@NotNull Iterable<T> content, @NotNull T[] terms) {
         List<Range> rangeList = new LinkedList<>();
 
         LinkedList<Integer>[] termsIndexes = new LinkedList[terms.length];
@@ -35,9 +38,7 @@ public class SmallestSubArray {
                         }
                     }
                     leftPointer = minimalList.removeFirst();
-
                     containsAll = minimalList.size() != 0;
-
                 }
                 Range range=new Range(leftPointer, index+1);
                 if(range.size() < smallestSize){
